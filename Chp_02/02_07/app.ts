@@ -1,7 +1,11 @@
-const todo = {
-  id: 123,
-  title: 'Tittle',
-  completed: false
-};
+function getTodo(id) {
+  const todo = {
+    id: 123,
+    title: 'Tittle',
+    completed: false
+  };
 
-let { id, title, completed } = todo;
+  return todo;
+}
+
+let { completed: isCompleted, id, title} = getTodo(123);
