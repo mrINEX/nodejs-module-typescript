@@ -1,4 +1,7 @@
-let a = 1;
-let b = 6;
+const todo = {
+  id: 123,
+  title: 'Tittle',
+  completed: false
+};
 
-[a, b] = [b, a];
+let { id, title, completed } = todo;
