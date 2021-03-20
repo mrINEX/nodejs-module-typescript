@@ -1,2 +1,4 @@
-const array = [123, "Pick up drycleaning", false];
-let [id, title, completed] = array;
+let a = 1;
+let b = 6;
+
+[a, b] = [b, a];
