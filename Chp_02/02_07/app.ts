@@ -1,11 +1,13 @@
-function getTodo(id) {
-  const todo = {
-    id: 123,
-    title: 'Tittle',
-    completed: false
-  };
+function countdown({ 
+  initial, 
+  final: final = 0, 
+  interval: interval = 1, 
+  initial: current 
+}) {
+  
+  while (current > final) {
+    console.log(current);
+    current -= interval;
+  }
 
-  return todo;
 }
-
-let { completed: isCompleted, id, title} = getTodo(123);

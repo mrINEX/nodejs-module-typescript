@@ -1,9 +1,7 @@
-function getTodo(id) {
-    var todo = {
-        id: 123,
-        title: 'Tittle',
-        completed: false
-    };
-    return todo;
+function countdown(_a) {
+    var initial = _a.initial, _b = _a.final, final = _b === void 0 ? 0 : _b, _c = _a.interval, interval = _c === void 0 ? 1 : _c, current = _a.initial;
+    while (current > final) {
+        console.log(current);
+        current -= interval;
+    }
 }
-var _a = getTodo(123), isCompleted = _a.completed, id = _a.id, title = _a.title;
