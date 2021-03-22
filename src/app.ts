@@ -49,14 +49,8 @@ function runApp(): void {
   }
 
   function renderTodo(list: ToDoList[], element: HTMLDivElement): void {
-    if(list.length === 0) {
-      const message: HTMLDivElement = document.createElement('div');
-      message.innerHTML = (
-        `<div class='list-group-item text-center text-giant'>
-          <strong>You've completed everything you needed to do!</strong>
-        </div>`
-      );
-      element.append(message);
+    if(!list.length) {
+      addToInfo(`You've completed everything you needed to do!`, element);
       return;
     }
 
@@ -70,7 +64,7 @@ function runApp(): void {
     const messageElement: HTMLDivElement = document.createElement('div');
     messageElement.innerHTML = (
       `<div class='list-group-item text-center text-giant'>
-        <strong>Info: </strong><code>${message}</code>
+        <code>${message}</code>
       </div>`
     );
     infoElement.append(messageElement);
