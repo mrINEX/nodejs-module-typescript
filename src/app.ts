@@ -20,14 +20,15 @@ function runApp(): void {
   ];
 
   const createTodo = (name: string, completed: boolean, list: ToDoList[], element: HTMLDivElement): HTMLDivElement => {
-    const itemTodo = document.createElement('div');
+    const itemTodo: HTMLDivElement = document.createElement('div');
     itemTodo.classList.add('todo-item', 'list-group-item');
     itemTodo.classList.toggle('completed', completed);
-    itemTodo.onclick = function() {
+    itemTodo.onclick = function(): void {
       list.forEach((item: ToDoList): void => {
         if (name === item.name)
           item.completed = !item.completed;
       });
+
       element.innerText = '';
       renderTodo(list, element);
     }
@@ -74,6 +75,7 @@ function runApp(): void {
   todoAdd.addEventListener('click', (): void => {
     todoInfo.innerText = '';
     const name = todoInput.value.trim();
+    todoInput.value = '';
     const isExist = ToDoList.filter((todo: ToDoList): boolean => todo.name === name);
     if (isExist.length !== 0) {
       const message: HTMLDivElement = document.createElement('div');
@@ -101,7 +103,6 @@ function runApp(): void {
     containerToDoList.innerText = '';
     renderTodo(ToDoList, containerToDoList);
   });
-
 
   renderTodo(ToDoList, containerToDoList);
 };
