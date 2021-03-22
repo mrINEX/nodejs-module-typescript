@@ -59,7 +59,7 @@ function runApp(): void {
       return;
     }
 
-    list.forEach((todo) => {
+    list.forEach((todo: ToDoList): void => {
       const { name, completed } = todo;
       element.append(createTodo(name, completed, list, element));
     });
