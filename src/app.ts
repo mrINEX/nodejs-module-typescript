@@ -65,6 +65,16 @@ function runApp(): void {
       element.append(createTodo(name, completed, list, element));
     });
   }
+
+  function addToInfo(message: string, infoElement: HTMLDivElement): void {
+    const messageElement: HTMLDivElement = document.createElement('div');
+    messageElement.innerHTML = (
+      `<div class='list-group-item text-center text-giant'>
+        <strong>Info: </strong><code>${message}</code>
+      </div>`
+    );
+    infoElement.append(messageElement);
+  }
   
   const containerToDoList: HTMLDivElement = document.querySelector('.todo-list');
   const todoAdd: HTMLButtonElement = document.querySelector('.todo-add');
@@ -77,14 +87,13 @@ function runApp(): void {
     const name = todoInput.value.trim();
     todoInput.value = '';
     const isExist = ToDoList.filter((todo: ToDoList): boolean => todo.name === name);
-    if (isExist.length !== 0) {
-      const message: HTMLDivElement = document.createElement('div');
-      message.innerHTML = (
-        `<div class='list-group-item text-center text-giant'>
-          <strong>To do with this name exist</strong>
-        </div>`
-      );
-      todoInfo.append(message);
+
+    if (!name) {
+      addToInfo('The todo cannot be empty', todoInfo);
+      return;
+    }
+    if (isExist.length) {
+      addToInfo('To do with this name exist', todoInfo);
       return;
     }
 
